@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 447632423}
   - component: {fileID: 447632422}
   m_Layer: 5
-  m_Name: 2nd Scene
+  m_Name: MediaLoad Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 899016238}
   - component: {fileID: 899016237}
   m_Layer: 5
-  m_Name: 1st Scene
+  m_Name: Weather Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
