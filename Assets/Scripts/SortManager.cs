@@ -17,7 +17,6 @@ public class SortManager : MonoBehaviour
     {
         cubeList = new List<GameObject>();
         GenerateCubes();
-
     }
 
 
@@ -29,15 +28,9 @@ public class SortManager : MonoBehaviour
         for (int i = 0; i < sqr; i++)
             for (int j = 0; j < sqr; j++)
             {
-                Vector3 pos = new Vector3(
-                    this.transform.position.x + distance * i - sqr / 2,
-                    this.transform.position.z + distance * j,
-                    0
-                );
-
                 GameObject o = Instantiate(
                     cubePrefab,
-                    pos,
+                    this.transform.position,
                     Quaternion.identity,
                     this.transform
                 );
@@ -46,6 +39,11 @@ public class SortManager : MonoBehaviour
             }
 
         Debug.Log(cubeList.Count);
+    }
+
+    void MoveCube()
+    {
+
     }
 
     // Update is called once per frame
