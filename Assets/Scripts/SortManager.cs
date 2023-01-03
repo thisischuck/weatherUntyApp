@@ -69,14 +69,51 @@ public class SortManager : MonoBehaviour
     }
 
     bool clicked = false;
-    public void Sort()
+    public void StartSort()
     {
         if (!clicked)
         {
             clicked = true;
             StartCoroutine(Sorting());
         }
+    }
 
+    float ColorValue(Color a)
+    {
+        return a.r * 100 + a.g * 10 + a.b;
+    }
+
+    //simplified compare cause we know what colors we are going to have
+    float CompareColor(Color a, Color b)
+    {
+        return ColorValue(a) - ColorValue(b);
+    }
+
+    float CompareTransforms(Transform a, Transform b)
+    {
+        Color ca = a.GetComponent<Image>().color;
+        Color cb = b.GetComponent<Image>().color;
+
+        return CompareColor(ca, cb);
+    }
+
+    void SortList()
+    {
+        List<Transform> l = new List<Transform>();
+        //write quicksort of the children of sortedParent
+        //create an array/list of children
+        foreach (Transform child in sortedParent)
+        {
+            l.Add(child);
+        }
+        //sort the list
+        l.Sort((x, y) => -(int)CompareTransforms(x, y));
+
+        //assign every object of the list it's new child index
+        for (int i = 0; i < l.Count; i++)
+        {
+            l[i].SetSiblingIndex(i);
+        }
     }
 
     IEnumerator Sorting()
@@ -88,6 +125,7 @@ public class SortManager : MonoBehaviour
             MoveCube(o);
             yield return new WaitForSecondsRealtime(0.5f);
         }
+        SortList();
     }
 
     public void MoveCube(GameObject o)

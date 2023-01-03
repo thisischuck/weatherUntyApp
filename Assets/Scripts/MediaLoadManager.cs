@@ -10,7 +10,6 @@ public class MediaLoadManager : MonoBehaviour
     public string texture_url;
     public string video_url;
 
-
     public RawImage raw;
     public VideoPlayer vp;
     //public RawImage video;
@@ -49,8 +48,6 @@ public class MediaLoadManager : MonoBehaviour
     {
         source.Play();
     }
-
-
 
     // Update is called once per frame
     void Update()
