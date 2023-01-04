@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System;
 
 namespace WeatherInformation
 {
     //This was made using Visual Studios 2022 Paste Special Method
+    [Serializable]
     public class WeatherInfo
     {
         public Coord coord;
@@ -20,12 +22,15 @@ namespace WeatherInformation
         public int cod;
     }
 
+
+    [Serializable]
     public class Coord
     {
         public float lon;
         public int lat;
     }
 
+    [Serializable]
     public class Main
     {
         public float temp;
@@ -38,6 +43,7 @@ namespace WeatherInformation
         public int grnd_level;
     }
 
+    [Serializable]
     public class Wind
     {
         public float speed;
@@ -45,11 +51,13 @@ namespace WeatherInformation
         public float gust;
     }
 
+    [Serializable]
     public class Clouds
     {
         public int all;
     }
 
+    [Serializable]
     public class Sys
     {
         public int type;
@@ -59,6 +67,7 @@ namespace WeatherInformation
         public int sunset;
     }
 
+    [Serializable]
     public class Weather
     {
         public int id;
