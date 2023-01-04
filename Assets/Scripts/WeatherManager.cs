@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using WeatherInformation;
+using TMPro;
 
 public class WeatherManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class WeatherManager : MonoBehaviour
     const int Faro = 2268337;
 
     public Transform map;
+    public GameObject ErrorVisualization;
 
     private WeatherInfo info;
 
@@ -37,6 +39,8 @@ public class WeatherManager : MonoBehaviour
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
+            ErrorVisualization.SetActive(true);
+            ErrorVisualization.GetComponentInChildren<TextMeshProUGUI>().text = www.error;
         }
         else
         {

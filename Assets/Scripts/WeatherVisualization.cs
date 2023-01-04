@@ -15,6 +15,7 @@ public class WeatherVisualization : MonoBehaviour
     public GameObject temperature;
     public TextMeshProUGUI maxima;
     public TextMeshProUGUI minima;
+    public TextMeshProUGUI atual;
 
 
     WeatherInfo info;
@@ -60,9 +61,11 @@ public class WeatherVisualization : MonoBehaviour
         //Get Temperature
         float maxInCelcius = info.main.temp_max - 273.15f;
         float minInCelcius = info.main.temp_min - 273.15f;
+        float atualInCelcius = info.main.temp - 273.15f;
 
         maxima.text = ((int)maxInCelcius).ToString() + "°";
         minima.text = ((int)minInCelcius).ToString() + "°";
+        atual.text = ((int)atualInCelcius).ToString() + "°";
 
         //Get Icon
         StartCoroutine(GetTexture(info.weather[0].icon));
