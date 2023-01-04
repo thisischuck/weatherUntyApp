@@ -14,6 +14,7 @@ public class WeatherManager : MonoBehaviour
     const int Coimbra = 2740636;
     const int Porto = 2735941;
     const int Faro = 2268337;
+    const int Angra = 3373348;
 
     public Transform map;
     public GameObject ErrorVisualization;
@@ -28,6 +29,7 @@ public class WeatherManager : MonoBehaviour
         StartCoroutine(GetWeatherData(Coimbra));
         StartCoroutine(GetWeatherData(Porto));
         StartCoroutine(GetWeatherData(Faro));
+        StartCoroutine(GetWeatherData(Angra));
     }
 
     IEnumerator GetWeatherData(int city)
@@ -46,7 +48,6 @@ public class WeatherManager : MonoBehaviour
         {
             string data = www.downloadHandler.text;
             info = JsonUtility.FromJson<WeatherInfo>(data);
-
             Transform t = map.Find(city.ToString());
             var src = t.GetComponent<WeatherVisualization>();
             src.Info = info;

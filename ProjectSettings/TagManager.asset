@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Rain
+    uniqueID: 3954445649
+    locked: 0
   - name: Map
     uniqueID: 1081240773
     locked: 0

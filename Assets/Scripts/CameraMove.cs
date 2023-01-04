@@ -21,7 +21,6 @@ public class CameraMove : MonoBehaviour
         {
             newPosition = value;
             updated = true;
-            arrived = false;
             resetButton.SetActive(true);
         }
     }
@@ -46,8 +45,6 @@ public class CameraMove : MonoBehaviour
             this.transform.position = Vector3.LerpUnclamped(this.transform.position, newPosition, speed * Time.deltaTime);
             float f = Vector3.Distance(this.transform.position, newPosition);
             updated = f > threshold;
-            if (!updated)
-                arrived = true;
         }
     }
 }

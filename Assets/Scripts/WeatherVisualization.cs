@@ -16,6 +16,7 @@ public class WeatherVisualization : MonoBehaviour
     public TextMeshProUGUI maxima;
     public TextMeshProUGUI minima;
     public TextMeshProUGUI atual;
+    public GameObject rain;
 
 
     WeatherInfo info;
@@ -69,6 +70,13 @@ public class WeatherVisualization : MonoBehaviour
 
         //Get Icon
         StartCoroutine(GetTexture(info.weather[0].icon));
+        Debug.Log(info.weather[0].main);
+
+        if (info.weather[0].main.Equals("Rain"))
+        {
+            rain.SetActive(true);
+        }
+
     }
 
     void OnMouseDown()
