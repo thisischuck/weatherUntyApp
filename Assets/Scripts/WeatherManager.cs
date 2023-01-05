@@ -7,8 +7,9 @@ using TMPro;
 
 public class WeatherManager : MonoBehaviour
 {
-    private const string apikey = "982d0bb3873a13a54c38b33a5186cb27";
-    //THIS API KEY IS VOID
+    private const string apikey = "d36a586f14147dfcd5f3588a9771f536";
+
+
 
     const int Lisboa = 2267056;
     const int Leiria = 2267094;
