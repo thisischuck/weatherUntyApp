@@ -49,8 +49,11 @@ public class WeatherManager : MonoBehaviour
             string data = www.downloadHandler.text;
             info = JsonUtility.FromJson<WeatherInfo>(data);
             Transform t = map.Find(city.ToString());
-            var src = t.GetComponent<WeatherVisualization>();
-            src.Info = info;
+            if (t.gameObject.activeSelf)
+            {
+                var src = t.GetComponent<WeatherVisualization>();
+                src.Info = info;
+            }
         }
     }
 

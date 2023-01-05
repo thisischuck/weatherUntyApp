@@ -10,7 +10,7 @@ public class MediaLoadManager : MonoBehaviour
     public string texture_url;
     public string video_url;
 
-    public RawImage raw;
+    public GameObject raw;
     public VideoPlayer vp;
     //public RawImage video;
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class MediaLoadManager : MonoBehaviour
 
     IEnumerator GetTexture()
     {
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture("https://codeshare.co.uk/media/1068/search-best-free-stock-images-one-place.jpg");
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(texture_url);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -40,7 +40,7 @@ public class MediaLoadManager : MonoBehaviour
         else
         {
             Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
-            raw.texture = myTexture;
+            raw.GetComponent<MeshRenderer>().material.mainTexture = myTexture;
         }
     }
 
